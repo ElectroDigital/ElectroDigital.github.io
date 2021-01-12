@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart | ElectroDigital</title>
+    <link rel = "icon" href = "logo.png" type = "image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="body">
+    <div class="cover">
+    <div class="header">
+      <img src="logo.png" alt="Company Logo" class="logo" />
+      <h1 class="head" href="">ElectroDigital</h1>
+      <ul>
+        <li><a href="home.html" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a href="infocon.html" title="About and Contact"><i class="fa fa-phone-square" aria-hidden="true"></i></a></li>
+        <li><a href="shop.html" title="Buy"><i class="fa fa-archive" aria-hidden="true"></i></a></li>
+        <li><a href="cart.html" title="Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <h1 class="shoph1">Cart</h1>
+        <div class="cartBox table-responsive">
+            <table class="table table-striped"></table>
+        </div>
+        <a href="placeorder.html" class="btn">Continue</a>
+    <div class="footer">
+      <div class="row">
+        <div class="col-3">
+          <img src="logo.png">
+          <h1 style="color: white;">ElectroDigital</h1>
+        </div>
+        <div class="col-3">
+          <ol>
+            <li><a href="home.html">Home</a></li>
+            <br>
+            <li><a href="infocon.html">About and Contact</a></li>
+            <br>
+            <li><a href="shop.html">Shop</a></li>
+            <br>
+            <li><a href="cart.html">Cart</a></li>
+          </ol>
+        </div>
+        <div class="col-3">
+          <img src="coverimg.png">
+        </div>
+      </div>
+      <div class="row">
+        <p class="rights"><sup><i class="fa fa-copyright" aria-hidden="true"></i></sup>  2020-CopyRights Reserved</p>
+      </div>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    <script id="MainScript">
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+      apiKey: "AIzaSyATkGh-G6TDarRg9APTbo68NDO5NXMnB_E",
+      authDomain: "electrodigital-12312.firebaseapp.com",
+      databaseURL: "https://electrodigital-12312.firebaseio.com",
+      projectId: "electrodigital-12312",
+      storageBucket: "electrodigital-12312.appspot.com",
+      messagingSenderId: "403031892649",
+      appId: "1:403031892649:web:8c396c66e9feb4cd72bfb8",
+      measurementId: "G-PY4ZCV5W46"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      window.onload = function(){
+        const cartBox = document.querySelector('.cartBox');
+        const cardBoxTable = cartBox.querySelector('table');
+	    let tableData = '';
+	    tableData += '<tr><th>Item Id</th><th>Item Name</th><th>Item Quantity</th><th>Item Price</th></tr>';
+	    if(JSON.parse(localStorage.getItem('items')) === null){
+		    tableData += '<tr><td colspan="5">No items found</td></tr>'
+	    }else{
+		    JSON.parse(localStorage.getItem('items')).map(data=>{
+			    tableData += '<tr><th>'+data.id+'</th><th>'+data.name+'</th><th>'+data.no+'</th><th>'+data.price+'</th></tr>';
+		    });
+	    }
+	    cardBoxTable.innerHTML = tableData;
+      }
+    
+    </script>
+  </body>
+</html>
