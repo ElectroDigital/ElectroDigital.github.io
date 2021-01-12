@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up | ElectroDigital</title>
+    <link rel = "icon" href = "logo.png" type = "image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body class="formbody1">
+    <div class="header">
+      <img src="logo.png" alt="Company Logo" class="logo" />
+      <h1 class="cname" href="">ElectroDigital</h1>
+    </div>
+    <div class="formdiv">
+        <input type="email" name="email" id="email" placeholder="E-Mail" required>
+        <br>
+        <br>
+        <input type="password" name="pwd" id="pwd" placeholder="Password" required>
+        <br>
+        <br>
+        <button onclick="registerUser()" class="submit">Register</button>
+        <br>
+        <br>
+        <a href="login.html" style="color: white;">Already have an account? Login Now!</a>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+      apiKey: "AIzaSyATkGh-G6TDarRg9APTbo68NDO5NXMnB_E",
+      authDomain: "electrodigital-12312.firebaseapp.com",
+      databaseURL: "https://electrodigital-12312.firebaseio.com",
+      projectId: "electrodigital-12312",
+      storageBucket: "electrodigital-12312.appspot.com",
+      messagingSenderId: "403031892649",
+      appId: "1:403031892649:web:8c396c66e9feb4cd72bfb8",
+      measurementId: "G-PY4ZCV5W46"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      registerUser=()=>{
+        user_email = document.getElementById('email').value
+        user_pwd = document.getElementById('pwd').value
+        firebase.auth().createUserWithEmailAndPassword(user_email, user_pwd).then(function(resp){
+          console.log(resp)
+          window.location.assign("login.html")
+        }).catch(function(err){
+          console.log(err.code)
+          alert(err.message)
+        })
+      }
+    </script>
+  </body>
+</html>
