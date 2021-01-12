@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product | ElectroDigital</title>
+    <link rel = "icon" href = "logo.png" type = "image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="body">
+    <div class="cover">
+    <div class="header">
+      <img src="logo.png" alt="Company Logo" class="logo" />
+      <h1 class="head" href="">ElectroDigital</h1>
+      <ul>
+        <li><a href="home.html" title="Home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a href="infocon.html" title="About and Contact"><i class="fa fa-phone-square" aria-hidden="true"></i></a></li>
+        <li><a href="shop.html" title="Buy"><i class="fa fa-archive" aria-hidden="true"></i></a></li>
+        <li><a href="cart.html" title="Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div class="row">
+        <div class="col-2-prod-img">
+          <img src="laptop/id-219/gif.gif">
+        </div>
+        <div class="col-2-prod">
+          <div class="data">
+            <p><a href="shop.html">Shop /</a>  <a href="laptops-1.html">Laptops /</a>  <a href="id-219.html">Product</a></p>
+            <h2>Lenovo ThinkPad E14 AMD Ryzen 5 4500U 14-inch Full HD IPS Thin and Light Laptop (8GB RAM/ 256GB SSD/ Windows 10 Home/ Microsoft Office Home & Student 2019/ Black/ 1.72 kg), 20T6S0A500</h2>
+            <div class="rating" title="4.6 / 5">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            </div>
+            <h3>Price: ₹ 49,990.00</h3>
+            <button class="btn" onclick="atc()" id="atc">Add To Cart</button>
+            <h4><strong>Description:</strong><br>ThinkPad Reliability (12 Military Specifications Certified) | Built to withstand rugged usage and can handle accidental knocks, drops, and even spills<br>Processor: AMD Ryzen 5 4500U processor, 2.3Ghz base speed, 4.0Ghz max speed, 6Cores, 8Mb Smart Cache<br>Operating System: Pre-loaded Windows 10 Home with lifetime validity<br>Display: 14-inch screen with (1920X1080) Full HD IPS Display | Anti Glare technology | 720p HD Camera with Thinkshutter | Connectivity: Intel AX200 11ax, 2x2 + BT5.1 | Audio: Skype-certified mics and 2x 2W Harman speakers with Dolby Advanced Audio | Dual array microphone<br>Memory: 8GB RAM | Storage: 256GB SSD<br>Design and battery: Thin and light Laptop | 180 Degree Hinge | Laptop weight 1.69kg | Battery Life: Upto 13 hours* as per MobileMark | Rapid Charge (80% in 1 hour)<br>Pre-installed software: Microsoft Office Home & Student 2019 | Inside the box: Laptop with battery, Charger, User manual</h4>
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <h1 style="text-align: center;">Your Feedback About The Product Is Valuable</h1>
+      <div class="aboutdiv">
+        Your Name: <br><input type="text" id="name" placeholder="Name"><br><br>
+        Your Phone Number: <br><input type="number" id="num" placeholder="Phone Number"><br><br>
+        Your E-Mail: <br><input type="email" id="email" placeholder="E-Mail"><br><br>
+        Your Feedback: <br><input type="text" id="how" placeholder="Describe your Feedback about the Product"><br><br>
+        <button class="btn" id="submit">Submit</button>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="row">
+        <div class="col-3">
+          <img src="logo.png">
+          <h1 style="color: white;">ElectroDigital</h1>
+        </div>
+        <div class="col-3">
+          <ol>
+            <li><a href="home.html">Home</a></li>
+            <br>
+            <li><a href="infocon.html">About and Contact</a></li>
+            <br>
+            <li><a href="shop.html">Shop</a></li>
+            <br>
+            <li><a href="cart.html">Cart</a></li>
+          </ol>
+        </div>
+        <div class="col-3">
+          <img src="coverimg.png">
+        </div>
+      </div>
+      <div class="row">
+        <p class="rights"><sup><i class="fa fa-copyright" aria-hidden="true"></i></sup>  2020-CopyRights Reserved</p>
+      </div>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    <script id="MainScript">
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+      apiKey: "AIzaSyATkGh-G6TDarRg9APTbo68NDO5NXMnB_E",
+      authDomain: "electrodigital-12312.firebaseapp.com",
+      databaseURL: "https://electrodigital-12312.firebaseio.com",
+      projectId: "electrodigital-12312",
+      storageBucket: "electrodigital-12312.appspot.com",
+      messagingSenderId: "403031892649",
+      appId: "1:403031892649:web:8c396c66e9feb4cd72bfb8",
+      measurementId: "G-PY4ZCV5W46"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+    //Ready Data
+    var nameV, numV, emailV, howV;
+    function Ready(){
+        nameV = document.getElementById('name').value;
+        numV = document.getElementById('num').value;
+        emailV = document.getElementById('email').value;
+        howV = document.getElementById('how').value;
+    }
+
+    //Write Data
+    document.getElementById('submit').onclick = function(){
+        Ready();
+        firebase.database().ref('ItemId219/' + nameV).set({
+            Name : nameV,
+            PhoneNumber: numV,
+            Email: emailV,
+            Feedback: howV,
+        });
+        document.getElementById('submit').innerHTML = "✔ Feedback Submitted"
+    }
+
+    let items = []
+
+    let item = { id: 219, name: "Lenovo ThinkPad E14 Laptop", price: "₹ 49,990.00", no: 1}
+
+    function atc(){
+      if(JSON.parse(localStorage.getItem('items')) === null){
+                        items.push(item);
+                        localStorage.setItem("items",JSON.stringify(items));
+                    }else{
+                        const localItems = JSON.parse(localStorage.getItem("items"));
+                        localItems.map(data=>{
+                            if(item.id == data.id){
+                                item.no = data.no + 1;
+                            }else{
+                                items.push(data);
+                            }
+                        });
+                        items.push(item);
+                        localStorage.setItem('items',JSON.stringify(items));
+                    }
+      document.getElementById('atc').innerHTML = "✔ Added to cart"
+      document.getElementById('atc').disabled = true;
+    }
+    
+    </script>
+  </body>
+</html>
