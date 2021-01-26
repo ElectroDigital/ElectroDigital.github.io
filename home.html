@@ -4,6 +4,11 @@
     <title>Home | ElectroDigital</title>
     <link rel = "icon" href = "logo.png" type = "image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="chatbotcss/style.css">
+    <link rel="stylesheet" type="text/css" href="chatbotcss/jquery.convform.css">
+    <script type="text/javascript" src="chatbotjs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="chatbotjs/jquery.convform.js"></script>
+    <script type="text/javascript" src="chatbotjs/custom.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -27,6 +32,11 @@
         <p class="p">"Technology and AI are the bright future of<br>the upcoming generations"</p>
         <a href="shop.html" class="btn">Shop Now</a>
     </div>
+    <a href="chatbots/chatbot-3/chatbot.html">
+      <div class="chat_icon" title="Chat with Chatbot!">
+        <i class="fa fa-comments-o"></i>
+      </div>
+    </a>
     <br>
     <hr>
     <br>
@@ -311,6 +321,7 @@
       firebase.initializeApp(firebaseConfig);
 
     document.getElementById("username").innerHTML = localStorage.getItem("ID");
+
     
     </script>
   </body>
